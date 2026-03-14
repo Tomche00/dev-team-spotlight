@@ -15,7 +15,7 @@ const Header = () => (
         <a href="#team" className="hover:text-foreground transition-colors">Team</a>
         <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
       </nav>
-      <a href="#contact" className="hidden sm:inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity">
+      <a href="#contact" className="hidden sm:inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity btn-press">
         Get in Touch <ArrowRight className="h-3.5 w-3.5" />
       </a>
     </div>

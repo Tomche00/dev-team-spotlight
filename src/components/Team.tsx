@@ -63,7 +63,7 @@ const Team = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
-            className="group rounded-xl bg-card-gradient border border-border p-6 text-center hover:border-primary/30 transition-colors"
+            className="group rounded-xl bg-card-gradient border border-border p-6 text-center hover:border-primary/30 card-hover"
           >
             <div className={`mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br ${member.color}`}>
               <span className="text-2xl font-bold text-foreground">{member.initials}</span>
