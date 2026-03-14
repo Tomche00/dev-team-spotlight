@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Process from "@/components/Process";
+import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
 import Team from "@/components/Team";
 import Contact from "@/components/Contact";
@@ -11,6 +12,7 @@ const Index = () => (
     <Header />
     <Hero />
     <Process />
+    <TechStack />
     <Projects />
     <Team />
     <Contact />

@@ -27,10 +27,10 @@ const Hero = () => (
           A tight-knit crew of architects, developers, and engineers shipping robust, scalable software from concept to production.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#projects" className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity">
+          <a href="#projects" className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity btn-press">
             View Our Work <ArrowRight className="h-4 w-4" />
           </a>
-          <a href="#team" className="inline-flex items-center gap-2 rounded-lg border border-border bg-secondary px-6 py-3 text-sm font-semibold text-secondary-foreground hover:bg-muted transition-colors">
+          <a href="#team" className="inline-flex items-center gap-2 rounded-lg border border-border bg-secondary px-6 py-3 text-sm font-semibold text-secondary-foreground hover:bg-muted transition-colors btn-press">
             Meet the Team
           </a>
         </div>
