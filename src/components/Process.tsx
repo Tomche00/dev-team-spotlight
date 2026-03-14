@@ -121,7 +121,7 @@ const ProcessLoop = ({ config, id }: { config: EllipseConfig; id: string }) => {
           <motion.div
             key={step.label}
             className="absolute flex flex-col items-center"
-            style={{ left: pos.x, top: pos.y, x: "-50%", y: "-50%" }}
+            style={{ left: pos.x, top: pos.y, x: "-50%", y: `-${nodeSize / 2}px` }}
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
