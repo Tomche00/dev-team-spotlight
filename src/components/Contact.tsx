@@ -50,7 +50,8 @@ const Contact = () => {
           </div>
 
           <form
-            onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+            action="https://formsubmit.co/tomce86@gmail.com"
+            method="POST"
             className="md:col-span-3 space-y-4"
           >
             {submitted ? (
