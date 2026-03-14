@@ -53,7 +53,7 @@ const Projects = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="group relative rounded-xl bg-card-gradient border border-border p-8 hover:border-primary/30 transition-colors"
+            className="group relative rounded-xl bg-card-gradient border border-border p-8 hover:border-primary/30 card-hover"
           >
             <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 mb-5">
               <project.icon className="h-6 w-6 text-primary" />
