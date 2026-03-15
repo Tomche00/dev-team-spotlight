@@ -6,19 +6,27 @@ const steps = [
   { icon: Lightbulb, label: "Idea", desc: "Brainstorm & define" },
   { icon: Map, label: "Plan", desc: "Architecture & design" },
   { icon: Code2, label: "Code", desc: "Build & develop" },
-  { icon: FlaskConical, label: "Test", desc: "QA & validate" },
   { icon: Cloud, label: "Deploy", desc: "Push to servers" },
   { icon: PackageCheck, label: "Ship", desc: "Deliver product" },
 ];
 
 const TOTAL = steps.length;
-const CYCLE_MS = 8000;
+const CYCLE_MS = 10000;
 
-interface EllipseConfig {
+// Infinity (lemniscate) curve parametric equations
+// t goes from 0 to 2*PI for a full loop
+function infinityPoint(cx: number, cy: number, a: number, b: number, t: number) {
+  const denom = 1 + Math.sin(t) * Math.sin(t);
+  const x = cx + (a * Math.cos(t)) / denom;
+  const y = cy + (b * Math.sin(t) * Math.cos(t)) / denom;
+  return { x, y };
+}
+
+interface InfinityConfig {
   cx: number;
   cy: number;
-  rx: number;
-  ry: number;
+  a: number;
+  b: number;
   w: number;
   h: number;
   nodeSize: number;
@@ -29,75 +37,82 @@ interface EllipseConfig {
   iconSize: string;
 }
 
-const desktop: EllipseConfig = {
-  cx: 350, cy: 200, rx: 280, ry: 140,
+const desktop: InfinityConfig = {
+  cx: 350, cy: 200, a: 280, b: 140,
   w: 700, h: 400, nodeSize: 64, dotR: 6, glowR: 18,
   fontSize: "text-xs", descSize: "text-[10px]", iconSize: "h-6 w-6",
 };
 
-const mobile: EllipseConfig = {
-  cx: 175, cy: 150, rx: 130, ry: 100,
+const mobile: InfinityConfig = {
+  cx: 175, cy: 150, a: 140, b: 90,
   w: 350, h: 300, nodeSize: 44, dotR: 4, glowR: 12,
   fontSize: "text-[10px]", descSize: "text-[8px]", iconSize: "h-4 w-4",
 };
 
-function ellipsePoint(cx: number, cy: number, rx: number, ry: number, angleDeg: number) {
-  const rad = (angleDeg * Math.PI) / 180;
-  return { x: cx + rx * Math.cos(rad), y: cy + ry * Math.sin(rad) };
+// Generate SVG path for the infinity shape
+function infinityPath(cx: number, cy: number, a: number, b: number, segments = 200) {
+  const points: string[] = [];
+  for (let i = 0; i <= segments; i++) {
+    const t = (i / segments) * 2 * Math.PI;
+    const { x, y } = infinityPoint(cx, cy, a, b, t);
+    points.push(`${i === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(2)}`);
+  }
+  return points.join(" ") + " Z";
 }
 
-function arrowAt(cx: number, cy: number, rx: number, ry: number, angleDeg: number, size = 6) {
-  const rad = (angleDeg * Math.PI) / 180;
-  const px = cx + rx * Math.cos(rad);
-  const py = cy + ry * Math.sin(rad);
-  const tx = -rx * Math.sin(rad);
-  const ty = ry * Math.cos(rad);
-  const len = Math.sqrt(tx * tx + ty * ty);
-  const nx = tx / len;
-  const ny = ty / len;
-  const perpx = -ny;
-  const perpy = nx;
-  return `M ${px} ${py} L ${px - nx * size + perpx * size * 0.5} ${py - ny * size + perpy * size * 0.5} L ${px - nx * size - perpx * size * 0.5} ${py - ny * size - perpy * size * 0.5} Z`;
+// Distribute steps along the infinity path
+// Place them at equal arc-parameter intervals
+function getStepPositions(cx: number, cy: number, a: number, b: number) {
+  // Distribute 5 steps evenly around the loop, avoiding the center crossing
+  const params = [
+    0,                    // right side top
+    Math.PI * 0.4,        // right side bottom
+    Math.PI * 0.8,        // approaching center from right
+    Math.PI * 1.2,        // left side
+    Math.PI * 1.6,        // left side bottom
+  ];
+  return params.map(t => infinityPoint(cx, cy, a, b, t));
 }
 
-const ProcessLoop = ({ config, id }: { config: EllipseConfig; id: string }) => {
-  const { cx, cy, rx, ry, w, h, nodeSize, dotR, glowR, fontSize, descSize, iconSize } = config;
+const InfinityLoop = ({ config, id }: { config: InfinityConfig; id: string }) => {
+  const { cx, cy, a, b, w, h, nodeSize, dotR, glowR, fontSize, descSize, iconSize } = config;
   const [activeIndex, setActiveIndex] = useState(0);
   const progressRef = useRef(0);
 
-  const stepAngles = steps.map((_, i) => (i / TOTAL) * 360 - 90);
-  const arrowAngles = steps.map((_, i) => {
-    const a1 = stepAngles[i];
-    const a2 = stepAngles[(i + 1) % TOTAL];
-    return a2 > a1 ? (a1 + a2) / 2 : (a1 + a2 + 360) / 2;
-  });
+  const stepPositions = getStepPositions(cx, cy, a, b);
 
-  const dotX = useMotionValue(cx + rx * Math.cos(-Math.PI / 2));
-  const dotY = useMotionValue(cy + ry * Math.sin(-Math.PI / 2));
+  const initPoint = infinityPoint(cx, cy, a, b, 0);
+  const dotX = useMotionValue(initPoint.x);
+  const dotY = useMotionValue(initPoint.y);
 
   useAnimationFrame((_, delta) => {
     progressRef.current = (progressRef.current + delta) % CYCLE_MS;
     const fraction = progressRef.current / CYCLE_MS;
-    const angle = fraction * 360 - 90;
-    const rad = (angle * Math.PI) / 180;
-    dotX.set(cx + rx * Math.cos(rad));
-    dotY.set(cy + ry * Math.sin(rad));
+    const t = fraction * 2 * Math.PI;
+    const pos = infinityPoint(cx, cy, a, b, t);
+    dotX.set(pos.x);
+    dotY.set(pos.y);
 
-    // Determine which step is closest
-    const newIndex = Math.floor(((fraction + 1 / (TOTAL * 2)) % 1) * TOTAL);
-    if (newIndex !== activeIndex) setActiveIndex(newIndex);
+    // Determine closest step
+    const stepParams = [0, 0.4, 0.8, 1.2, 1.6];
+    const currentParam = fraction * 2; // 0 to 2
+    let closest = 0;
+    let minDist = Infinity;
+    stepParams.forEach((sp, i) => {
+      let dist = Math.abs(currentParam - sp);
+      dist = Math.min(dist, 2 - dist);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    if (closest !== activeIndex) setActiveIndex(closest);
   });
+
+  const path = infinityPath(cx, cy, a, b);
 
   return (
     <div className="relative" style={{ width: w, height: h }}>
       <svg className="absolute inset-0 w-full h-full" viewBox={`0 0 ${w} ${h}`} fill="none">
-        {/* Track */}
-        <ellipse cx={cx} cy={cy} rx={rx} ry={ry} stroke="hsl(var(--border))" strokeWidth="2" />
-
-        {/* Arrows */}
-        {arrowAngles.map((angle, i) => (
-          <path key={`${id}-arr-${i}`} d={arrowAt(cx, cy, rx, ry, angle, dotR + 1)} fill="hsl(var(--primary) / 0.35)" />
-        ))}
+        {/* Infinity track */}
+        <path d={path} stroke="hsl(var(--border))" strokeWidth="2" fill="none" />
 
         {/* Gradient def */}
         <defs>
@@ -113,9 +128,32 @@ const ProcessLoop = ({ config, id }: { config: EllipseConfig; id: string }) => {
         <motion.circle r={dotR} fill="hsl(var(--primary))" cx={dotX} cy={dotY} />
       </svg>
 
-      {/* Step nodes */}
+      {/* Center: Test icon */}
+      <div
+        className="absolute flex flex-col items-center justify-center"
+        style={{ left: cx, top: cy, transform: "translate(-50%, -50%)" }}
+      >
+        <motion.div
+          className="relative z-10 flex items-center justify-center rounded-full border-2 border-primary bg-background shadow-glow-primary"
+          style={{ width: nodeSize * 1.3, height: nodeSize * 1.3 }}
+          animate={{
+            boxShadow: [
+              "0 0 24px hsl(var(--primary) / 0.3), 0 0 48px hsl(var(--primary) / 0.1)",
+              "0 0 32px hsl(var(--primary) / 0.5), 0 0 64px hsl(var(--primary) / 0.2)",
+              "0 0 24px hsl(var(--primary) / 0.3), 0 0 48px hsl(var(--primary) / 0.1)",
+            ],
+          }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <FlaskConical className={id === "desktop" ? "h-8 w-8" : "h-5 w-5"} style={{ color: "hsl(var(--primary))" }} />
+        </motion.div>
+        <span className={`mt-1.5 font-bold tracking-wide text-primary ${fontSize}`}>Test</span>
+        <span className={`${descSize} text-muted-foreground`}>QA & validate</span>
+      </div>
+
+      {/* Step nodes along the infinity path */}
       {steps.map((step, i) => {
-        const pos = ellipsePoint(cx, cy, rx, ry, stepAngles[i]);
+        const pos = stepPositions[i];
         const isActive = i === activeIndex;
         return (
           <motion.div
@@ -183,10 +221,10 @@ const Process = () => (
       </motion.div>
 
       <div className="hidden md:flex justify-center">
-        <ProcessLoop config={desktop} id="desktop" />
+        <InfinityLoop config={desktop} id="desktop" />
       </div>
       <div className="md:hidden flex justify-center">
-        <ProcessLoop config={mobile} id="mobile" />
+        <InfinityLoop config={mobile} id="mobile" />
       </div>
     </div>
   </section>
