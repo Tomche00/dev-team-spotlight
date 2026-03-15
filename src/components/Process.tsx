@@ -89,6 +89,10 @@ const InfinityLoop = ({ config, id }: { config: InfinityConfig; id: string }) =>
       if (dist < minDist) { minDist = dist; closest = i; }
     });
     if (closest !== activeIndex) setActiveIndex(closest);
+
+    // Test is at center crossing (fraction ≈ 0 and ≈ 0.5)
+    const nearCenter = (fraction < 0.06 || fraction > 0.94) || (Math.abs(fraction - 0.5) < 0.06);
+    if (nearCenter !== testActive) setTestActive(nearCenter);
   });
 
   const path = infinityPath(cx, cy, a, b);
