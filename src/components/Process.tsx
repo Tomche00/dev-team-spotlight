@@ -112,21 +112,31 @@ const InfinityLoop = ({ config, id }: { config: InfinityConfig; id: string }) =>
         style={{ left: cx, top: cy, transform: "translate(-50%, -50%)" }}
       >
         <motion.div
-          className="relative z-10 flex items-center justify-center rounded-full border-2 border-primary bg-background"
+          className="relative z-10 flex items-center justify-center rounded-full border-2 bg-background"
           style={{ width: nodeSize * 1.3, height: nodeSize * 1.3 }}
           animate={{
-            boxShadow: [
-              "0 0 24px hsl(var(--primary) / 0.3), 0 0 48px hsl(var(--primary) / 0.1)",
-              "0 0 32px hsl(var(--primary) / 0.5), 0 0 64px hsl(var(--primary) / 0.2)",
-              "0 0 24px hsl(var(--primary) / 0.3), 0 0 48px hsl(var(--primary) / 0.1)",
-            ],
+            borderColor: testActive ? "hsl(var(--primary))" : "hsl(var(--border))",
+            boxShadow: testActive
+              ? "0 0 24px hsl(var(--primary) / 0.4), 0 0 48px hsl(var(--primary) / 0.15)"
+              : "0 0 0px hsl(var(--primary) / 0)",
+            scale: testActive ? 1.15 : 1,
           }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          <FlaskConical className={id === "desktop" ? "h-8 w-8" : "h-5 w-5"} style={{ color: "hsl(var(--primary))" }} />
+          <FlaskConical className={id === "desktop" ? "h-8 w-8" : "h-5 w-5"} style={{ color: testActive ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))" }} />
         </motion.div>
-        <span className={`mt-1.5 font-bold tracking-wide text-primary ${fontSize}`}>Test</span>
-        <span className={`${descSize} text-muted-foreground`}>QA & validate</span>
+        <motion.span
+          className={`mt-1.5 font-bold tracking-wide ${fontSize}`}
+          animate={{ color: testActive ? "hsl(var(--primary))" : "hsl(var(--foreground))" }}
+        >
+          Test
+        </motion.span>
+        <motion.span
+          className={`${descSize} text-muted-foreground`}
+          animate={{ opacity: testActive ? 1 : 0.4 }}
+        >
+          QA & validate
+        </motion.span>
       </div>
 
       {/* 4 step nodes */}
