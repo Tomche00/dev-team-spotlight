@@ -62,6 +62,7 @@ function getStepPositions(cx: number, cy: number, a: number, b: number) {
 const InfinityLoop = ({ config, id }: { config: InfinityConfig; id: string }) => {
   const { cx, cy, a, b, w, h, nodeSize, dotR, glowR, fontSize, descSize, iconSize } = config;
   const [activeIndex, setActiveIndex] = useState(0);
+  const [testActive, setTestActive] = useState(false);
   const progressRef = useRef(0);
 
   const stepPositions = getStepPositions(cx, cy, a, b);
