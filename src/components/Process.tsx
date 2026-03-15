@@ -79,19 +79,18 @@ const InfinityLoop = ({ config, id }: { config: InfinityConfig; id: string }) =>
     dotX.set(pos.x);
     dotY.set(pos.y);
 
-    // Center crossings at fraction ≈ 0 and ≈ 0.5
-    // Order: Test(0) → Idea(0.125) → Plan(0.375) → Test(0.5) → Code(0.625) → Deploy(0.875)
-    const nearCenter = (fraction < 0.09 || fraction > 0.91) || (Math.abs(fraction - 0.5) < 0.09);
+    // Center crossings at fraction ≈ 0.25 and ≈ 0.75 (t=π/2 and t=3π/2)
+    // Order: Idea(0.125) → Test(0.25) → Plan(0.375) → Code(0.625) → Test(0.75) → Deploy(0.875)
+    const nearCenter = (Math.abs(fraction - 0.25) < 0.08) || (Math.abs(fraction - 0.75) < 0.08);
     if (nearCenter !== testActive) setTestActive(nearCenter);
 
     if (!nearCenter) {
-      const stepParams = [0.25, 0.75, 1.25, 1.75];
-      const currentParam = fraction * 2;
+      const stepFractions = [0.125, 0.375, 0.625, 0.875];
       let closest = 0;
       let minDist = Infinity;
-      stepParams.forEach((sp, i) => {
-        let dist = Math.abs(currentParam - sp);
-        dist = Math.min(dist, 2 - dist);
+      stepFractions.forEach((sf, i) => {
+        let dist = Math.abs(fraction - sf);
+        dist = Math.min(dist, 1 - dist);
         if (dist < minDist) { minDist = dist; closest = i; }
       });
       if (closest !== activeIndex) setActiveIndex(closest);
