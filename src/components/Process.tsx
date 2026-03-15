@@ -79,20 +79,25 @@ const InfinityLoop = ({ config, id }: { config: InfinityConfig; id: string }) =>
     dotX.set(pos.x);
     dotY.set(pos.y);
 
-    const stepParams = [0.25, 0.75, 1.25, 1.75];
-    const currentParam = fraction * 2;
-    let closest = 0;
-    let minDist = Infinity;
-    stepParams.forEach((sp, i) => {
-      let dist = Math.abs(currentParam - sp);
-      dist = Math.min(dist, 2 - dist);
-      if (dist < minDist) { minDist = dist; closest = i; }
-    });
-    if (closest !== activeIndex) setActiveIndex(closest);
-
-    // Test is at center crossing (fraction ≈ 0 and ≈ 0.5)
-    const nearCenter = (fraction < 0.06 || fraction > 0.94) || (Math.abs(fraction - 0.5) < 0.06);
+    // Center crossings at fraction ≈ 0 and ≈ 0.5
+    // Order: Test(0) → Idea(0.125) → Plan(0.375) → Test(0.5) → Code(0.625) → Deploy(0.875)
+    const nearCenter = (fraction < 0.09 || fraction > 0.91) || (Math.abs(fraction - 0.5) < 0.09);
     if (nearCenter !== testActive) setTestActive(nearCenter);
+
+    if (!nearCenter) {
+      const stepParams = [0.25, 0.75, 1.25, 1.75];
+      const currentParam = fraction * 2;
+      let closest = 0;
+      let minDist = Infinity;
+      stepParams.forEach((sp, i) => {
+        let dist = Math.abs(currentParam - sp);
+        dist = Math.min(dist, 2 - dist);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      if (closest !== activeIndex) setActiveIndex(closest);
+    } else {
+      if (activeIndex !== -1) setActiveIndex(-1);
+    }
   });
 
   const path = infinityPath(cx, cy, a, b);
