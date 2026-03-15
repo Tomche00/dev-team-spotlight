@@ -6,46 +6,21 @@ const steps = [
   { icon: Lightbulb, label: "Idea", desc: "Brainstorm & define" },
   { icon: Map, label: "Plan", desc: "Architecture & design" },
   { icon: Code2, label: "Code", desc: "Build & develop" },
-  { icon: Cloud, label: "Deploy", desc: "Push to servers" },
-  { icon: PackageCheck, label: "Ship", desc: "Deliver product" },
+  { icon: Cloud, label: "Deploy", desc: "Ship & deliver" },
 ];
 
 const TOTAL = steps.length;
 const CYCLE_MS = 10000;
 
-// Infinity (lemniscate) curve parametric equations
-// t goes from 0 to 2*PI for a full loop
-function infinityPoint(cx: number, cy: number, a: number, b: number, t: number) {
-  const denom = 1 + Math.sin(t) * Math.sin(t);
-  const x = cx + (a * Math.cos(t)) / denom;
-  const y = cy + (b * Math.sin(t) * Math.cos(t)) / denom;
-  return { x, y };
-}
-
-interface InfinityConfig {
-  cx: number;
-  cy: number;
-  a: number;
-  b: number;
-  w: number;
-  h: number;
-  nodeSize: number;
-  dotR: number;
-  glowR: number;
-  fontSize: string;
-  descSize: string;
-  iconSize: string;
-}
-
 const desktop: InfinityConfig = {
-  cx: 350, cy: 200, a: 280, b: 140,
-  w: 700, h: 400, nodeSize: 64, dotR: 6, glowR: 18,
+  cx: 400, cy: 250, a: 320, b: 180,
+  w: 800, h: 500, nodeSize: 64, dotR: 6, glowR: 18,
   fontSize: "text-xs", descSize: "text-[10px]", iconSize: "h-6 w-6",
 };
 
 const mobile: InfinityConfig = {
-  cx: 175, cy: 150, a: 140, b: 90,
-  w: 350, h: 300, nodeSize: 44, dotR: 4, glowR: 12,
+  cx: 175, cy: 180, a: 140, b: 110,
+  w: 350, h: 360, nodeSize: 44, dotR: 4, glowR: 12,
   fontSize: "text-[10px]", descSize: "text-[8px]", iconSize: "h-4 w-4",
 };
 
