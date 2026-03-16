@@ -3,10 +3,10 @@ import { Lightbulb, Map, Code2, FlaskConical, Cloud } from "lucide-react";
 import { useState, useRef } from "react";
 
 const steps = [
-  { icon: Lightbulb, label: "Idea", desc: "Brainstorm & define" },
   { icon: Map, label: "Plan", desc: "Architecture & design" },
   { icon: Code2, label: "Code", desc: "Build & develop" },
   { icon: Cloud, label: "Deploy", desc: "Ship & deliver" },
+  { icon: Lightbulb, label: "Idea", desc: "Brainstorm & define" },
 ];
 
 const CYCLE_MS = 10000;
