@@ -20,7 +20,7 @@ const team = [
   {
     name: "Tomislav Jovanovski",
     role: "Frontend Developer | SaaS & QA Automation",
-    bio: "Frontend developer building intuitive SaaS interfaces with a strong focus on QA automation. Combines modern tooling with structured testing strategies — including E2E and UI testing — to ensure usability, reliability, and high code quality.",
+    bio: "Tomislav is a frontend developer focused on building intuitive, high-quality user interfaces for SaaS products. His work combines frontend development with QA automation and modern tooling, ensuring both usability and reliability.\n\nHe has experience developing user-facing features, optimizing user experience, and contributing to product quality through structured testing and automation processes. He actively works on implementing automated testing strategies, including end-to-end and UI testing, to ensure consistent performance and reduce regression issues across releases.\n\nHis approach emphasizes early detection of issues, continuous integration workflows, and maintaining high standards of code quality throughout the development lifecycle.\n\nIn addition to frontend and QA work, his experience also extends to Chrome extension development and AI-assisted coding workflows, improving development speed and product efficiency.",
     initials: "TJ",
     color: "from-primary/20 to-accent/10",
     linkedin: "https://www.linkedin.com/in/tomce/",
