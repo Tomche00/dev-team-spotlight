@@ -2,39 +2,28 @@ import { motion } from "framer-motion";
 
 const team = [
   {
-    name: "Alex Petrov",
-    role: "Backend Architect",
-    bio: "Designs distributed systems and defines technical strategy. 12+ years crafting scalable architectures.",
-    initials: "AP",
+    name: "Viktor Peševski",
+    role: "Principal Software Engineer | Software Architect",
+    bio: "Highly experienced engineer and architect focused on backend systems, scalability, and high-performance SaaS platforms. Deep expertise in designing complex architectures and building reliable, large-scale CPaaS and marketing automation solutions.",
+    initials: "VP",
     color: "from-primary/20 to-primary/5",
+    linkedin: "https://www.linkedin.com/in/viktor-peshevski-58b667a6/",
   },
   {
-    name: "Maria Chen",
-    role: "Backend Developer",
-    bio: "Builds robust APIs and services. Deep expertise in databases, message queues, and performance tuning.",
-    initials: "MC",
+    name: "Ivan Naumovski",
+    role: "Senior Software Development Engineer | Marketing Automation",
+    bio: "Senior engineer specializing in marketing automation and modern web technologies. Strong experience across backend and frontend with PHP, Laravel, Symfony, React, and GCP — delivering efficient, scalable solutions for complex business needs.",
+    initials: "IN",
     color: "from-accent/20 to-accent/5",
+    linkedin: "https://www.linkedin.com/in/ivan-naumovski-27b151107/",
   },
   {
-    name: "David Kim",
-    role: "Frontend Developer",
-    bio: "Creates pixel-perfect interfaces with modern frameworks. Obsessed with UX, accessibility, and speed.",
-    initials: "DK",
+    name: "Tomislav Jovanovski",
+    role: "Frontend Developer | SaaS & QA Automation",
+    bio: "Frontend developer building intuitive SaaS interfaces with a strong focus on QA automation. Combines modern tooling with structured testing strategies — including E2E and UI testing — to ensure usability, reliability, and high code quality.",
+    initials: "TJ",
     color: "from-primary/20 to-accent/10",
-  },
-  {
-    name: "Sara Novak",
-    role: "QA Engineer",
-    bio: "Ensures quality through automated testing, CI pipelines, and meticulous regression coverage.",
-    initials: "SN",
-    color: "from-accent/15 to-primary/10",
-  },
-  {
-    name: "James Wright",
-    role: "DevOps Engineer",
-    bio: "Manages infrastructure, CI/CD, and cloud deployments. Keeps everything running at scale, 24/7.",
-    initials: "JW",
-    color: "from-primary/15 to-primary/5",
+    linkedin: "https://www.linkedin.com/in/tomce/",
   },
 ];
 
@@ -51,7 +40,7 @@ const Team = () => (
           Meet the <span className="text-gradient">Team</span>
         </h2>
         <p className="text-muted-foreground max-w-lg mx-auto">
-          Five specialists, one mission — deliver exceptional software.
+          Three specialists, one mission — deliver exceptional software.
         </p>
       </motion.div>
 
@@ -68,7 +57,14 @@ const Team = () => (
             <div className={`mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br ${member.color}`}>
               <span className="text-2xl font-bold text-foreground">{member.initials}</span>
             </div>
-            <h3 className="text-lg font-bold mb-1">{member.name}</h3>
+            <a
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg font-bold mb-1 inline-block hover:text-primary transition-colors"
+            >
+              {member.name}
+            </a>
             <p className="text-sm font-medium text-primary mb-3 font-mono">{member.role}</p>
             <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
           </motion.div>
