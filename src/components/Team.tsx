@@ -4,7 +4,7 @@ const team = [
   {
     name: "Viktor Peševski",
     role: "Principal Software Engineer | Software Architect",
-    bio: "Highly experienced engineer and architect focused on backend systems, scalability, and high-performance SaaS platforms. Deep expertise in designing complex architectures and building reliable, large-scale CPaaS and marketing automation solutions.",
+    bio: "Viktor is a highly experienced software engineer and architect with a strong focus on backend systems, scalability, and high-performance SaaS platforms. He brings deep expertise in designing complex system architectures and building reliable, large-scale solutions in the CPaaS and marketing automation space.\n\nWith a strong background in performance optimization and system design, he has played a key role in ensuring the stability and scalability of long-running platforms handling high traffic and data-intensive operations.",
     initials: "VP",
     color: "from-primary/20 to-primary/5",
     linkedin: "https://www.linkedin.com/in/viktor-peshevski-58b667a6/",
