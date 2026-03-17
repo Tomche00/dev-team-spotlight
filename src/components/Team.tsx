@@ -4,7 +4,7 @@ const team = [
   {
     name: "Viktor Peševski",
     role: "Principal Software Engineer | Software Architect",
-    bio: "Highly experienced engineer and architect focused on backend systems, scalability, and high-performance SaaS platforms. Deep expertise in designing complex architectures and building reliable, large-scale CPaaS and marketing automation solutions.",
+    bio: "Viktor is a highly experienced software engineer and architect with a strong focus on backend systems, scalability, and high-performance SaaS platforms. He brings deep expertise in designing complex system architectures and building reliable, large-scale solutions in the CPaaS and marketing automation space.\n\nWith a strong background in performance optimization and system design, he has played a key role in ensuring the stability and scalability of long-running platforms handling high traffic and data-intensive operations.",
     initials: "VP",
     color: "from-primary/20 to-primary/5",
     linkedin: "https://www.linkedin.com/in/viktor-peshevski-58b667a6/",
@@ -12,7 +12,7 @@ const team = [
   {
     name: "Ivan Naumovski",
     role: "Senior Software Development Engineer | Marketing Automation",
-    bio: "Senior engineer specializing in marketing automation and modern web technologies. Strong experience across backend and frontend with PHP, Laravel, Symfony, React, and GCP — delivering efficient, scalable solutions for complex business needs.",
+    bio: "Ivan is a senior software engineer specializing in marketing automation systems and modern web technologies. His expertise spans backend and frontend development, with strong experience in PHP, Laravel, Symfony, React, and cloud platforms such as GCP.\n\nHe has contributed extensively to building and improving automation workflows, integrations, and scalable features, helping deliver efficient and flexible solutions tailored to complex business needs.",
     initials: "IN",
     color: "from-accent/20 to-accent/5",
     linkedin: "https://www.linkedin.com/in/ivan-naumovski-27b151107/",
@@ -20,7 +20,7 @@ const team = [
   {
     name: "Tomislav Jovanovski",
     role: "Frontend Developer | SaaS & QA Automation",
-    bio: "Frontend developer building intuitive SaaS interfaces with a strong focus on QA automation. Combines modern tooling with structured testing strategies — including E2E and UI testing — to ensure usability, reliability, and high code quality.",
+    bio: "Tomislav is a frontend developer focused on building intuitive, high-quality user interfaces for SaaS products. His work combines frontend development with QA automation and modern tooling, ensuring both usability and reliability.\n\nHe has experience developing user-facing features, optimizing user experience, and contributing to product quality through structured testing and automation processes. He actively works on implementing automated testing strategies, including end-to-end and UI testing, to ensure consistent performance and reduce regression issues across releases.\n\nHis approach emphasizes early detection of issues, continuous integration workflows, and maintaining high standards of code quality throughout the development lifecycle.\n\nIn addition to frontend and QA work, his experience also extends to Chrome extension development and AI-assisted coding workflows, improving development speed and product efficiency.",
     initials: "TJ",
     color: "from-primary/20 to-accent/10",
     linkedin: "https://www.linkedin.com/in/tomce/",
