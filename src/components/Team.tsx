@@ -12,7 +12,7 @@ const team = [
   {
     name: "Ivan Naumovski",
     role: "Senior Software Development Engineer | Marketing Automation",
-    bio: "Senior engineer specializing in marketing automation and modern web technologies. Strong experience across backend and frontend with PHP, Laravel, Symfony, React, and GCP — delivering efficient, scalable solutions for complex business needs.",
+    bio: "Ivan is a senior software engineer specializing in marketing automation systems and modern web technologies. His expertise spans backend and frontend development, with strong experience in PHP, Laravel, Symfony, React, and cloud platforms such as GCP.\n\nHe has contributed extensively to building and improving automation workflows, integrations, and scalable features, helping deliver efficient and flexible solutions tailored to complex business needs.",
     initials: "IN",
     color: "from-accent/20 to-accent/5",
     linkedin: "https://www.linkedin.com/in/ivan-naumovski-27b151107/",
