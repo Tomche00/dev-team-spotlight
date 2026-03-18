@@ -2,8 +2,7 @@
 
 A modern, visually engaging web platform for showcasing our development team, projects, and technical capabilities.
 
-🌐 **Live Preview:**
-https://id-preview--265887db-bb3a-4535-af85-663edb0795dc.lovable.app/#projects
+![DevForge](docs/screenshots/preview.png)
 
 ---
 
