@@ -1,52 +1,153 @@
-**Use your preferred IDE**
+# 🚀 DevForge — Dev Team Website
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+A modern, visually engaging web platform for showcasing our development team, projects, and technical capabilities.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🌐 **Live Preview:**
+https://id-preview--265887db-bb3a-4535-af85-663edb0795dc.lovable.app/#projects
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 👥 About DevForge
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+**DevForge** is our team’s digital presence — built to highlight who we are, what we build, and how we approach software development.
 
-# Step 3: Install the necessary dependencies.
-npm i
+This project represents:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+* Our frontend engineering skills
+* Our design and UI/UX thinking
+* Our experience building scalable SaaS products
+* Our collaboration as a development team
+
+---
+
+## 🎯 Purpose
+
+We created this platform to:
+
+* Showcase our team members and roles
+* Present real-world projects and contributions
+* Demonstrate modern frontend architecture
+* Serve as a portfolio for clients and employers
+
+---
+
+## ✨ Features
+
+* 👨‍💻 Team member spotlight
+* 📁 Project showcase section
+* 🎨 Clean, modern UI (SaaS-style)
+* 📱 Fully responsive design
+* ⚡ Fast performance with Vite
+
+---
+
+## 🖼️ Preview
+
+> ⚠️ Add screenshots or GIFs here (very important for frontend projects)
+
+Suggested:
+
+* Homepage
+* Team section
+* Projects section
+
+---
+
+## 🛠️ Tech Stack
+
+* **Framework:** React + TypeScript
+* **Build Tool:** Vite
+* **UI Components:** shadcn-ui
+* **Styling:** Tailwind CSS
+
+---
+
+## 🧱 Project Structure
+
+```
+src/
+ ├── components/   # Reusable UI components
+ ├── pages/        # Application pages
+ ├── hooks/        # Custom React hooks
+ ├── data/         # Static/mock data
+ └── assets/       # Images and styles
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Tomche00/dev-team-spotlight.git
+cd dev-team-spotlight
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run locally
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🌐 Deployment & Domain
 
-**Use GitHub Codespaces**
+This project is deployed via Lovable.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+To connect a custom domain:
 
-## What technologies are used for this project?
+* Go to Project → Settings → Domains
+* Click **Connect Domain**
 
-This project is built with:
+More info:
+https://docs.lovable.dev/features/custom-domain#custom-domain
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
+## 🧠 Key Engineering Decisions
 
-Yes, you can!
+* **Vite** for fast development and build performance
+* **Component-based architecture** for scalability
+* **Tailwind CSS** for rapid UI development
+* **shadcn-ui** for consistent and reusable design system
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🚧 Future Improvements
+
+* CMS integration for dynamic content
+* Blog / insights section
+* Animations and micro-interactions
+* SEO optimization
+* Multi-language support
+
+---
+
+## 👨‍💻 Team
+
+Built by the **DevForge Team**
+Frontend & Product Development
+
+---
+
+## ⭐ Support
+
+If you like this project:
+
+* ⭐ Star the repo
+* 🍴 Fork it
+* 📢 Share it
+
+---
+
+## 📄 License
+
+MIT
