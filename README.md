@@ -95,21 +95,6 @@ npm install
 ```bash
 npm run dev
 ```
-
----
-
-## 🌐 Deployment & Domain
-
-This project is deployed via Lovable.
-
-To connect a custom domain:
-
-* Go to Project → Settings → Domains
-* Click **Connect Domain**
-
-More info:
-https://docs.lovable.dev/features/custom-domain#custom-domain
-
 ---
 
 ## 🧠 Key Engineering Decisions
@@ -135,16 +120,6 @@ https://docs.lovable.dev/features/custom-domain#custom-domain
 
 Built by the **DevForge Team**
 Frontend & Product Development
-
----
-
-## ⭐ Support
-
-If you like this project:
-
-* ⭐ Star the repo
-* 🍴 Fork it
-* 📢 Share it
 
 ---
 
