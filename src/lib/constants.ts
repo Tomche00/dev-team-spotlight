@@ -6,7 +6,7 @@
 export const SITE = {
   name: "DevForge",
   tagline: "Senior product engineering team",
-  email: "hello@devforge.team",
+  email: "hello@devforge.mk",
   location: "Remote-first, worldwide",
   linkedin: "https://linkedin.com/company/devforge",
   github: "https://github.com/devforge",
