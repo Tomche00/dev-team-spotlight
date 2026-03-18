@@ -40,7 +40,7 @@ export const TEAM = [
       "Frontend specialist focused on scalable SaaS interfaces, design systems, browser extensions, UI modernization, and automated quality assurance.",
     initials: "TJ",
     linkedin: "https://www.linkedin.com/in/tomce/",
-    github: "https://github.com/",
+    github: "https://github.com/Tomche00",
   },
 ];
 
