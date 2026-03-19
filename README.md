@@ -1,127 +1,80 @@
-# 🚀 DevForge — Dev Team Website
+# DevForge
 
-A modern, visually engaging web platform for showcasing our development team, projects, and technical capabilities.
+> Senior product engineering team — backend systems, frontend modernization, QA automation, and production-ready delivery.
 
-![DevForge](docs/screenshots/preview.png)
+![DevForge Preview](docs/screenshots/preview.png)
 
----
-
-## 👥 About DevForge
-
-**DevForge** is our team’s digital presence — built to highlight who we are, what we build, and how we approach software development.
-
-This project represents:
-
-* Our frontend engineering skills
-* Our design and UI/UX thinking
-* Our experience building scalable SaaS products
-* Our collaboration as a development team
+🔗 **Live:** [dev-team-spotlight.lovable.app](https://dev-team-spotlight.lovable.app)
 
 ---
 
-## 🎯 Purpose
+## About
 
-We created this platform to:
-
-* Showcase our team members and roles
-* Present real-world projects and contributions
-* Demonstrate modern frontend architecture
-* Serve as a portfolio for clients and employers
+**DevForge** is a small, senior software engineering team that helps companies modernize and scale SaaS products. This repository contains our landing page — built to showcase who we are, what we do, and how we work.
 
 ---
 
-## ✨ Features
+## Tech Stack
 
-* 👨‍💻 Team member spotlight
-* 📁 Project showcase section
-* 🎨 Clean, modern UI (SaaS-style)
-* 📱 Fully responsive design
-* ⚡ Fast performance with Vite
-
----
-
-## 🖼️ Preview
-
-> ⚠️ Add screenshots or GIFs here (very important for frontend projects)
-
-Suggested:
-
-* Homepage
-* Team section
-* Projects section
+| Layer | Technology |
+|---|---|
+| Framework | React 18 + TypeScript |
+| Build | Vite |
+| Styling | Tailwind CSS |
+| Components | shadcn/ui + Radix UI |
+| Animations | Framer Motion |
+| Routing | React Router |
 
 ---
 
-## 🛠️ Tech Stack
-
-* **Framework:** React + TypeScript
-* **Build Tool:** Vite
-* **UI Components:** shadcn-ui
-* **Styling:** Tailwind CSS
-
----
-
-## 🧱 Project Structure
+## Project Structure
 
 ```
 src/
- ├── components/   # Reusable UI components
- ├── pages/        # Application pages
- ├── hooks/        # Custom React hooks
- ├── data/         # Static/mock data
- └── assets/       # Images and styles
+├── components/       # Page sections (Hero, Team, Projects, etc.)
+│   └── ui/           # Reusable UI primitives (shadcn/ui)
+├── hooks/            # Custom React hooks
+├── lib/
+│   ├── constants.ts  # ✏️ All editable site content
+│   └── utils.ts      # Utility functions
+├── pages/            # Route pages
+├── index.css         # Design tokens & global styles
+└── main.tsx          # App entry point
 ```
 
 ---
 
-## 🚀 Getting Started
+## Editing Content
 
-### 1. Clone the repository
+All site copy, team bios, projects, and configuration live in a single file:
+
+```
+src/lib/constants.ts
+```
+
+Update `SITE`, `TEAM`, `PROJECTS`, `SERVICES`, `WHY_US`, and `ENGAGEMENT_MODELS` to change content across the entire site.
+
+---
+
+## Getting Started
 
 ```bash
+# Clone
 git clone https://github.com/Tomche00/dev-team-spotlight.git
 cd dev-team-spotlight
-```
 
-### 2. Install dependencies
-
-```bash
+# Install
 npm install
-```
 
-### 3. Run locally
-
-```bash
+# Dev server
 npm run dev
+
+# Production build
+npm run build
 ```
----
-
-## 🧠 Key Engineering Decisions
-
-* **Vite** for fast development and build performance
-* **Component-based architecture** for scalability
-* **Tailwind CSS** for rapid UI development
-* **shadcn-ui** for consistent and reusable design system
 
 ---
 
-## 🚧 Future Improvements
-
-* CMS integration for dynamic content
-* Blog / insights section
-* Animations and micro-interactions
-* SEO optimization
-* Multi-language support
-
----
-
-## 👨‍💻 Team
-
-Built by the **DevForge Team**
-Frontend & Product Development
-
----
-
-## 📄 License
+## License
 
 MIT
