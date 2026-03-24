@@ -6,7 +6,7 @@
 export const SITE = {
   name: "DevForge",
   tagline: "Senior product engineering team",
-  email: "hello@devforge.mk",
+  email: "info@devforge.mk",
   location: "Remote-first, worldwide",
   linkedin: "https://linkedin.com/company/devforge",
   github: "https://github.com/devforge",
@@ -41,6 +41,15 @@ export const TEAM = [
     initials: "TJ",
     linkedin: "https://www.linkedin.com/in/tomce/",
     github: "https://github.com/Tomche00",
+  },
+    {
+    name: "Boban Peshevski",
+    role: "QA Engineer | Automation & Manual Testing",
+    description:
+      "Quality-focused engineer specializing in test automation and manual validation, using tools like Playwright and API testing to ensure reliable releases, strong coverage, and product stability.",
+    initials: "BP",
+    linkedin: "https://www.linkedin.com/in/boban-peshevski/",
+    github: "https://github.com/",
   },
 ];
 
